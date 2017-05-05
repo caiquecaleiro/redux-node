@@ -34,6 +34,80 @@ export function report(state) {
 }
 
 /**
+ * Checks whether the robot is placed and if the command is a valid direction.
+ * Then returns the new direction state.
+ * @param {Object} state 
+ * @param {String} 'LEFT or RIGHT' 
+ * @return {Object} 
+ */
+export function rotate(state, command) {
+  if (!state.isPlaced) {
+    console.log('Robot is not placed yet. Please use PLACE X, Y, F');
+    return state;
+  }
+
+  switch (command) {
+    case 'LEFT':
+    case 'RIGHT':
+      const f = getNewDirection(state.f, command);
+      return { ...state, f };
+    default:
+      return state;
+  }
+}
+
+/**
+ * Returns the new directions based on the current one.
+ * @param {String} current
+ * @param {String} newDirection 
+ * @return {String} 
+ */
+function getNewDirection(current, newDirection) {
+  if (newDirection === 'LEFT') {
+    return rotateLeft(current);
+  }
+  return rotateRight(current);
+}
+
+/**
+ * Returns a new direction to left based on the current one.
+ * Ex: current = NORTH, returns = WEST.
+ * @param {String} current
+ * @return {String}
+ */
+function rotateLeft(current){
+	switch(current){
+		case 'NORTH':
+			return 'WEST';
+		case 'SOUTH':
+			return 'EAST';
+		case 'EAST':
+			return 'NORTH';
+		case 'WEST':
+			return 'SOUTH';
+	}
+}
+
+/**
+ * Returns a new direction to right based on the current one.
+ * Ex: current = NORTH, returns = EAST.
+ * @param {String} current
+ * @return {String}
+ */
+function rotateRight(current){
+	switch(current){
+		case 'NORTH':
+			return 'EAST';
+		case 'SOUTH':
+			return 'WEST';
+		case 'EAST':
+			return 'SOUTH';
+		case 'WEST':
+			return 'NORTH';
+	}
+}
+
+/**
  * Checks whether the X and Y are a valid position 
  * between 0 and 5 (5x5 table).
  * @param {Number} x 
