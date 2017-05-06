@@ -33,8 +33,7 @@ export function place(state, object) {
  * @return {Object} 
  */
 export function report(state) {
-  if (!state.isPlaced) {
-    console.log('Robot is not placed yet. Please use PLACE X, Y, F');
+  if (!isRobotPlaced(state)) {
     return state;
   }
   
@@ -52,8 +51,7 @@ export function report(state) {
  * @return {Object} 
  */
 export function rotate(state, command) {
-  if (!state.isPlaced) {
-    console.log('Robot is not placed yet. Please use PLACE X, Y, F');
+  if (!isRobotPlaced(state)) {
     return state;
   }
 
@@ -74,8 +72,7 @@ export function rotate(state, command) {
  * @return {Object} 
  */
 export function move(state) {
-  if (!state.isPlaced) {
-    console.log('Robot is not placed yet. Please use PLACE X, Y, F');
+  if (!isRobotPlaced(state)) {
     return state;
   }
 
@@ -93,6 +90,14 @@ export function move(state) {
     default:
       return state;
   }
+}
+
+function isRobotPlaced(state) {
+  if (!state.isPlaced) {
+    console.log('Robot is not placed yet. Please use PLACE X, Y, F.');
+    return false;
+  }
+  return true;
 }
 
 /**
