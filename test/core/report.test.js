@@ -1,5 +1,7 @@
 import expect from 'expect';
 
+import { NORTH } from '../../src/constants/constants';
+
 import { report } from '../../src/core/core';
 
 describe('Core', () => {
@@ -9,14 +11,14 @@ describe('Core', () => {
       const state = { 
         x: 1,
         y: 2,
-        f: 'NORTH',
+        f: NORTH,
         isPlaced: true 
       };
       const nextState = report(state);
       expect(nextState).toEqual({ 
         x: 1,
         y: 2,
-        f: 'NORTH',
+        f: NORTH,
         isPlaced: true 
       });
     });

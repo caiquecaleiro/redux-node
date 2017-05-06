@@ -1,6 +1,15 @@
 import { createStore } from 'redux';
 import reducers from './reducers';
-import { place, report, rotate } from './actions/index';
+import { place, report, rotate, move } from './actions/index';
+
+import {
+  MOVE,
+  REPORT,
+  RIGHT,
+  LEFT,
+  PLACE
+} from './constants/constants';
+
 
 const store = createStore(reducers);
 
@@ -9,7 +18,8 @@ process.stdin.setEncoding('utf8');
 
 const stdin = process.openStdin();
 
-process.stdout.write('Write a command for the Robot.');
+console.log('Write a command for the Robot.');
+console.log('');
 
 stdin.addListener('data', (input) => {
   let action = executeCommand(input);
@@ -25,16 +35,20 @@ export function executeCommand(input) {
     .replace(/\s\s+/g, ' ')
     .split(' ');
 
-  const [command, x, y, f] = object;
-  
+  let [command, x, y, f] = object;
+  x = parseInt(x);
+  y = parseInt(y);
+   
   switch (command) {
-    case 'PLACE':
+    case PLACE:
       return [place({ x, y, f })];
-    case 'REPORT':
+    case REPORT:
       return [report()];
-    case 'LEFT':
-    case 'RIGHT': 
+    case LEFT:
+    case RIGHT: 
       return [rotate(command)];
+    case MOVE:
+      return [move()];
     default:
       console.log('Invalid option. Please type PLACE, MOVE, LEFT, RIGHT or REPORT');
       return [];

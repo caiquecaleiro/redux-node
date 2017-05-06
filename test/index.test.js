@@ -1,5 +1,13 @@
 import expect from 'expect';
 
+import {
+  NORTH,
+  SOUTH,
+  EAST,
+  WEST,
+  LEFT,
+  RIGHT
+} from './../src/constants/constants';
 import { executeCommand } from './../src/index';
 
 describe('Index', () => {
@@ -12,9 +20,9 @@ describe('Index', () => {
       expect(action).toEqual([{ 
         type: 'PLACE', 
         position: { 
-          x: '1', 
-          y: '1',
-          f: 'NORTH'
+          x: 1, 
+          y: 1,
+          f: NORTH
         }
       }]);
     });
@@ -26,23 +34,23 @@ describe('Index', () => {
       expect(action).toEqual([{ 
         type: 'PLACE', 
         position: { 
-          x: '3', 
-          y: '1',
-          f: 'EAST'
+          x: 3, 
+          y: 1,
+          f: EAST
         }
       }]);
     });
 
     it('should handle the PLACE command without commas', () => {
-      const command = 'place 5 5 south';
+      const command = 'place 4 4 south';
       const action = executeCommand(command);
       
       expect(action).toEqual([{ 
         type: 'PLACE', 
         position: { 
-          x: '5', 
-          y: '5',
-          f: 'SOUTH'
+          x: 4, 
+          y: 4,
+          f: SOUTH
         }
       }]);
     });
@@ -61,11 +69,11 @@ describe('Index', () => {
     });
 
     it('should handle the LEFT command', () => {
-      let command = 'LEFT';
+      let command = LEFT;
       let action = executeCommand(command);
       const expectedAction = [{ 
         type: 'ROTATE',
-        direction: 'LEFT'
+        direction: LEFT
       }];
 
       expect(action).toEqual(expectedAction);
@@ -77,11 +85,11 @@ describe('Index', () => {
     });
 
     it('should handle the RIGHT command', () => {
-      let command = 'RIGHT';
+      let command = RIGHT;
       let action = executeCommand(command);
       const expectedAction = [{ 
         type: 'ROTATE',
-        direction: 'RIGHT'
+        direction: RIGHT
       }];
 
       expect(action).toEqual(expectedAction);

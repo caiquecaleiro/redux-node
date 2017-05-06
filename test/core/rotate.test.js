@@ -1,5 +1,13 @@
 import expect from 'expect';
 
+import {
+  NORTH,
+  SOUTH,
+  EAST,
+  WEST,
+  LEFT,
+  RIGHT
+} from '../../src/constants/constants';
 import { rotate } from '../../src/core/core';
 
 describe('Core', () => {
@@ -10,14 +18,14 @@ describe('Core', () => {
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'NORTH'
+        f: NORTH
       };
-      const nextState = rotate(state, 'LEFT');
+      const nextState = rotate(state, LEFT);
       expect(nextState).toEqual({
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'WEST'
+        f: WEST
       });
     });
 
@@ -26,14 +34,14 @@ describe('Core', () => {
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'NORTH'
+        f: NORTH
       };
-      const nextState = rotate(state, 'RIGHT');
+      const nextState = rotate(state, RIGHT);
       expect(nextState).toEqual({
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'EAST'
+        f: EAST
       });
     });
 
@@ -42,14 +50,14 @@ describe('Core', () => {
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'WEST'
+        f: WEST
       };
-      const nextState = rotate(state, 'RIGHT');
+      const nextState = rotate(state, RIGHT);
       expect(nextState).toEqual({
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'NORTH'
+        f: NORTH
       });
     });
 
@@ -58,14 +66,14 @@ describe('Core', () => {
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'EAST'
+        f: EAST
       };
-      const nextState = rotate(state, 'LEFT');
+      const nextState = rotate(state, LEFT);
       expect(nextState).toEqual({
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'NORTH'
+        f: NORTH
       });
     });
 
@@ -74,14 +82,14 @@ describe('Core', () => {
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'EAST'
+        f: EAST
       };
-      const nextState = rotate(state, 'RIGHT');
+      const nextState = rotate(state, RIGHT);
       expect(nextState).toEqual({
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'SOUTH'
+        f: SOUTH
       });
     });
 
@@ -90,14 +98,14 @@ describe('Core', () => {
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'SOUTH'
+        f: SOUTH
       };
-      const nextState = rotate(state, 'LEFT');
+      const nextState = rotate(state, LEFT);
       expect(nextState).toEqual({
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'EAST'
+        f: EAST
       });
     });
 
@@ -106,14 +114,14 @@ describe('Core', () => {
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'WEST'
+        f: WEST
       };
-      const nextState = rotate(state, 'LEFT');
+      const nextState = rotate(state, LEFT);
       expect(nextState).toEqual({
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'SOUTH'
+        f: SOUTH
       });
     });
 
@@ -122,14 +130,14 @@ describe('Core', () => {
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'SOUTH'
+        f: SOUTH
       };
-      const nextState = rotate(state, 'RIGHT');
+      const nextState = rotate(state, RIGHT);
       expect(nextState).toEqual({
         isPlaced: true,
         x: 0,
         y: 0,
-        f: 'WEST'
+        f: WEST
       });
     });
   });

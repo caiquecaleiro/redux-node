@@ -1,0 +1,11 @@
+export const INCREASE = 'INCREASE';
+export const DECREASE = 'DECREASE';
+export const NORTH = 'NORTH';
+export const SOUTH = 'SOUTH';
+export const EAST = 'EAST';
+export const WEST = 'WEST';
+export const LEFT = 'LEFT';
+export const RIGHT = 'RIGHT';
+export const MOVE = 'MOVE';
+export const REPORT = 'REPORT';
+export const PLACE = 'PLACE';

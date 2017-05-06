@@ -1,4 +1,4 @@
-import { PLACE, REPORT, ROTATE } from './types';
+import { PLACE, REPORT, ROTATE, MOVE } from './types';
 
 export function place(position) {
 	return {
@@ -17,5 +17,11 @@ export function rotate(direction) {
 	return {
 		type: ROTATE,
 		direction
+	};
+}
+
+export function move(direction) {
+	return {
+		type: MOVE
 	};
 }

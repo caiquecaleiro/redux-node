@@ -1,5 +1,5 @@
-import { PLACE, REPORT, ROTATE } from '../actions/types';
-import { place, report, rotate } from '../core/core';
+import { PLACE, REPORT, ROTATE, MOVE } from '../actions/types';
+import { place, report, rotate, move } from '../core/core';
 
 const INITIAL_STATE = { isPlaced: false };
 
@@ -11,6 +11,8 @@ export default function (state = INITIAL_STATE, action) {
       return report(state);
     case ROTATE:
       return rotate(state, action.direction);
+    case MOVE:
+      return move(state);
     default:
       return state;
   }

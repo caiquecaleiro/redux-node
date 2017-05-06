@@ -1,5 +1,11 @@
 import expect from 'expect';
 
+import {
+  NORTH,
+  SOUTH,
+  WEST,
+  EAST
+} from '../../src/constants/constants';
 import { place } from '../../src/core/core';
 
 describe('Core', () => {
@@ -10,7 +16,7 @@ describe('Core', () => {
       const object = {
         x: 1,
         y: 1,
-        f: 'WEST',
+        f: WEST,
         isPlaced: false
       };
       const nextState = place(state, object);
@@ -18,7 +24,7 @@ describe('Core', () => {
         {
           x: 1,
           y: 1,
-          f: 'WEST',
+          f: WEST,
           isPlaced: true
         }
       );
@@ -29,13 +35,13 @@ describe('Core', () => {
       const xInvalid = {
         x: 6,
         y: 1,
-        f: 'WEST',
+        f: WEST,
         isPlaced: false
       };
       const yInvalid = {
         x: 1,
         y: 6,
-        f: 'NORTH',
+        f: NORTH,
         isPlaced: false
       };
 
@@ -50,13 +56,13 @@ describe('Core', () => {
       const xInvalid = {
         x: -1,
         y: 1,
-        f: 'WEST',
+        f: WEST,
         isPlaced: false
       };
       const yInvalid = {
         x: 1,
         y: -1,
-        f: 'NORTH',
+        f: NORTH,
         isPlaced: false
       };
 
@@ -85,13 +91,13 @@ describe('Core', () => {
       const objectX = {
         x: 1.1,
         y: 1,
-        f: 'W',
+        f: EAST,
         isPlaced: false
       };
       const objectY = {
         x: 1,
         y: 2.3,
-        f: 'W',
+        f: EAST,
         isPlaced: false
       };
 
